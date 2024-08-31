@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="content-header">
+        <div class="content-header__row">
+            <h1 class="content-header__title">Polo {{ poloData.name }}</h1>
+            <p class="content-header__subtitle" i18n="details-subtitle">Exibindo detalhes do polo {{ poloData.name }} #{{ poloData.id }}</p>
+        </div>
+    </div>
+
+    <div class="content-body">
+        <form [formGroup]="poloForm" class="form-polo">
+            <div class="form-polo__form-group">
+                <h2>Detalhes do Endereço</h2>
+                <div class="form-polo__form-group__form-row">
+                    <div class="form-polo__form-group__form-row__form-field">
+                      <app-cep [cep]="poloData.cep" (notify)="setAddress($event);"></app-cep>
+                    </div>
+                    <div class="form-polo__form-group__form-row__form-field-street">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nome da Rua</mat-label>
+                            <input matInput formControlName="rua" placeholder="Nome da Rua">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-polo__form-group__form-row__form-field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Bairro</mat-label>
+                            <input matInput formControlName="bairro" placeholder="Bairro">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-polo__form-group__form-row__form-field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Estado</mat-label>
+                            <input matInput formControlName="estado" placeholder="Estado">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-polo__form-group__form-row__form-field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Cidade</mat-label>
+                            <input matInput formControlName="cidade" placeholder="Cidade">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-polo__form-group">
+                <h2>Detalhes da Empresa</h2>
+                <div class="form-polo__form-group__form-row">
+                    <div class="form-polo__form-group__form-row__form-field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nome</mat-label>
+                            <input matInput formControlName="nome" placeholder="Nome">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-polo__form-group__form-row__form-field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Business</mat-label>
+                            <input matInput formControlName="business" placeholder="Business">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-polo__form-group__form-row__form-field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Valuation</mat-label>
+                            <input matInput formControlName="valuation" placeholder="Valuation">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-polo__form-group__form-row__form-field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>CNPJ</mat-label>
+                            <input matInput formControlName="cnpj" placeholder="CNPJ" mask="00.000.000/0000-00">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-polo__form-group__form-row__form-field">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Ativo?</mat-label>
+                            <mat-select formControlName="ativo" placeholder="Selecione">
+                                <mat-option [value]="true">Sim</mat-option>
+                                <mat-option [value]="false">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-polo__form-actions">
+                <button type="button" (click)="onCancel()" class="form-polo__form-actions__btn-cancel">Voltar</button>
+                <button type="submit" [disabled]="poloForm.invalid" class="form-polo__form-actions__btn-save">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

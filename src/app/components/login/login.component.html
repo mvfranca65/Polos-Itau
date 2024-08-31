@@ -1,0 +1,17 @@
+<div class="login-container">
+    <div class="login-content">
+        <header class="header">
+            <div class="header__left">
+                <img src="../assets/images/logo-itau.png" alt="Logo Itaú BBA" class="header__logo">
+            </div>
+        </header>
+        <div class="login-box">
+            <h1 class="login-title">Login</h1>
+            <p class="login-subtitle">Insira seu nome para continuar</p>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+                <input type="text" formControlName="name" class="login-input" placeholder="Nome" required>
+                <button type="submit" class="login-button" [disabled]="loginForm.invalid">Entrar</button>
+            </form>
+        </div>
+    </div>
+</div>

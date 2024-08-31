@@ -1,0 +1,92 @@
+.container {
+    background-color: #FBFBFB;
+    padding: 0 5%;
+
+    .content-header {
+        background-color: #FBFBFB;
+        &__row {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+        &__title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            color: #333;
+        }
+        &__subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+    }
+
+    .content-body {
+        .form-polo {
+            &__form-group {
+                margin-bottom: 20px;
+            
+                h2 {
+                  margin-bottom: 10px;
+                  font-size: 18px;
+                  color: #333;
+                }
+
+                &__form-row {
+                  display: flex;
+
+                  &__form-field {
+                    width: 15%;
+                    margin-right: 15px;
+                    mat-form-field {
+                      width: 100%;
+                    }
+                  }
+
+                  &__form-field-street {
+                    width: 40%;
+                    margin-right: 15px;
+                    mat-form-field {
+                      width: 100%;
+                    }
+                  }
+                }
+            }
+            &__form-actions {
+              display: flex;
+              justify-content: flex-start;
+              gap: 10px;
+              margin-top: 20px;
+          
+              &__btn-cancel, &__btn-save {
+                font-weight: 600;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                font-size: 14px;
+                cursor: pointer;
+              }
+          
+              &__btn-cancel {
+                width: 7%;
+                background-color: #ccc;
+                color: #fff;
+              }
+          
+              &__btn-save {
+                width: 10%;
+                background-color: #ff6f00;
+                color: #fff;
+              }
+          
+              &__btn-save[disabled] {
+                background-color: #ff6f00;
+                opacity: 0.6;
+                cursor: not-allowed;
+              }
+            }
+        }
+    }
+}
+  
