@@ -1,101 +1,142 @@
-.principais-polos {
-    padding: 0 5%;
-}
+.hubs {
+  padding: 0 5%;
+  background-color: #FBFBFB;
 
-// .header {
-//     display: flex;
-//     justify-content: space-between;
-//     margin-top: 2.5%;
-//     &__title {
-//         h1 {
-//             font-size: 26px;
-//             // font-weight: 600;
-//         }
-//     }
-//     &__search {
-//         input {
-//             width: 250px;
-//         }
-//     }
-// }
-
-.header {
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .header__left {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .header__title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-    color: #333;
-  }
-  
-  .header__subtitle {
-    font-size: 16px;
-    color: #666;
-    margin: 5px 0 0 0;
-  }
-  
-  .header__right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header__search {
-    padding: 8px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.3s;
-  }
-  
-  .header__search:focus {
-    border-color: #666;
-  }
+    padding-top: 20px;
 
-  .header__search::placeholder {
-    font-size: 12px; /* Diminui o tamanho do placeholder */
-    color: #999; /* Cor do placeholder */
-    opacity: 1; /* Garante que a opacidade do placeholder seja total */
-  }
-
-.body {
-    table {
-        width: 100%;
-
-        .situacao {
-            display: flex;
-            width: 9px;
-            height: 9px;
-            border: 1px solid;
-            border-radius: 100%;
-        }
+    .header__left {
+      display: flex;
+      flex-direction: column;
+      .header__title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 3% 0 0 0;
+        color: #1A1A1A;
+      }
+      .header__subtitle {
+        font-size: 16px;
+        color: #666;
+        margin: 5px 0 0 0;
+      }
     }
+
+    .header__right {
+      display: flex;
+      align-items: center;
+      width: 25%;
+      min-width: 200px;
       
-    th.mat-sort-header-sorted {
-        color: black;
+      .header__search {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        background-color: #FBFBFB;
+        border-radius: 4px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .header__search:focus {
+        border-color: #666;
+      }
+      .header__search::placeholder {
+        font-size: 14px;
+        color: #999;
+        opacity: 1;
+      }
     }
+  }
+
+  .body {
+    margin: 20px 0 60px 0;
+
+    .table-responsive {
+      width: 100%;
+      table {
+        width: 100%;
+        min-width: 600px;
+        
+        .active {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border: 1px solid;
+          border-radius: 50%;
+        }
+  
+        th, td {
+          font-size: 12px;
+          text-align: left;
+          padding: 8px;
+          white-space: nowrap;
+        }
+
+        .situation-th {          
+          ::ng-deep .mat-sort-header-container {
+            justify-content: center;
+          }
+        }
+  
+        .centered-column {
+          text-align: center;
+          vertical-align: middle;
+        }
+        td {
+          font-weight: 400;
+          color: #42404B;
+          .eye-img {
+            width: 28px;
+            cursor: pointer;
+          }
+        }
+        .td-name {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep mat-paginator {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0 0 2px 2px;
 }
 
 .red {
-    color: red;
-    background-color: red
+  color: #FF7573;
+  background-color: #FF7573;
 }
 
 .green {
-    color: green;
-    background-color: green;
+  color: #6CF272;
+  background-color: #6CF272;
 }
 
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
 
+    .header__right {
+      width: 100% !important;
+      margin-top: 10px;
+    }
+  }
 
+  .header__search {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PolosService } from 'src/app/services/polos.service';
+import { PolosService } from 'src/app/services/polos/polos.service';
 
 @Component({
   selector: 'app-login',

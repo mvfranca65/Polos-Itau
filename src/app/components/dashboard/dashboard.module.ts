@@ -17,12 +17,14 @@ import { NgxMaskModule } from 'ngx-mask';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { CurrencyBrPipe } from 'src/app/pipes/currencyBr.pipe';
 
 @NgModule({
   declarations: [
     HomeComponent,
     DetailsComponent,
     CepComponent,
+    CurrencyBrPipe
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatOptionModule,
     MatSelectModule,
     NgxMaskModule.forRoot()
-  ]
+  ],
 })
 export class DashboardModule { }

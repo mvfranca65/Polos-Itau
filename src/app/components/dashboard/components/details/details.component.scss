@@ -1,92 +1,114 @@
 .container {
+  background-color: #FBFBFB;
+  padding: 0 5%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
     background-color: #FBFBFB;
-    padding: 0 5%;
 
-    .content-header {
-        background-color: #FBFBFB;
-        &__row {
-            display: flex;
-            flex-direction: column;
-            margin-top: 2rem;
-        }
-        &__title {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0;
-            color: #333;
-        }
-        &__subtitle {
-            font-size: 16px;
-            color: #666;
-            margin-top: 5px;
-        }
+    .header__row {
+      display: flex;
+      flex-direction: column;
     }
 
-    .content-body {
-        .form-polo {
-            &__form-group {
-                margin-bottom: 20px;
-            
-                h2 {
-                  margin-bottom: 10px;
-                  font-size: 18px;
-                  color: #333;
-                }
-
-                &__form-row {
-                  display: flex;
-
-                  &__form-field {
-                    width: 15%;
-                    margin-right: 15px;
-                    mat-form-field {
-                      width: 100%;
-                    }
-                  }
-
-                  &__form-field-street {
-                    width: 40%;
-                    margin-right: 15px;
-                    mat-form-field {
-                      width: 100%;
-                    }
-                  }
-                }
-            }
-            &__form-actions {
-              display: flex;
-              justify-content: flex-start;
-              gap: 10px;
-              margin-top: 20px;
-          
-              &__btn-cancel, &__btn-save {
-                font-weight: 600;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                font-size: 14px;
-                cursor: pointer;
-              }
-          
-              &__btn-cancel {
-                width: 7%;
-                background-color: #ccc;
-                color: #fff;
-              }
-          
-              &__btn-save {
-                width: 10%;
-                background-color: #ff6f00;
-                color: #fff;
-              }
-          
-              &__btn-save[disabled] {
-                background-color: #ff6f00;
-                opacity: 0.6;
-                cursor: not-allowed;
-              }
-            }
-        }
+    .header__title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 3% 0 0 0;    
+      color: #1A1A1A;
     }
+
+    .header__subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-top: 5px;
+    }
+  }
+
+  .body {
+    .form-polo {
+      .form-group {
+        margin-bottom: 20px;
+
+        h2 {
+          margin-bottom: 10px;
+          font-size: 16px;
+          color: #333;
+        }
+
+        .form-row {
+          display: flex;
+          flex-wrap: wrap; /* Permite que os campos sejam quebrados em várias linhas em telas menores */
+
+          .form-row__form-field, .form-row__form-field-street {
+            flex: 1;
+            margin-right: 15px;
+            min-width: 150px; /* Define um tamanho mínimo para os campos, para não ficarem muito pequenos */
+
+            mat-form-field {
+              width: 100%;
+            }
+          }
+
+          .form-row__form-field-street {
+            flex: 2; /* O campo de rua será maior */
+          }
+
+          .form-row__form-field:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-top: 20px;
+
+        .btn-cancel,
+        .btn-save {
+          font-weight: 600;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        .btn-cancel {
+          background-color: #989898;
+          color: #fff;
+        }
+
+        .btn-save {
+          background-color: #ff6f00;
+          color: #fff;
+        }
+
+        .btn-save[disabled] {
+          background-color: #ff6f00;
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
 }
-  
+
+@media (max-width: 768px) {
+  .header__title {
+    font-size: 20px;
+  }
+
+  .header__subtitle {
+    font-size: 14px;
+  }
+
+  .form-row__form-field, .form-row__form-field-street {
+    flex: 1 1 100%;
+   
+  }
+}

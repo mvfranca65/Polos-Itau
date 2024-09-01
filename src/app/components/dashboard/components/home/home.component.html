@@ -1,4 +1,4 @@
-<div class="principais-polos">
+<div class="hubs">
   <header class="header">
     <div class="header__left">
       <h1 class="header__title">Polos Itaú</h1>
@@ -9,58 +9,58 @@
     </div>
   </header>
 
-  <div class="body">
-    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
-      
-      <!-- Nome Column -->
-      <ng-container matColumnDef="Nome">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
-          Nome
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-    
-      <!-- Negócios Column -->
-      <ng-container matColumnDef="Negócios">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by business">
-          Negócios
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.business}} </td>
-      </ng-container>
-    
-      <!-- Valor Column -->
-      <ng-container matColumnDef="Valor">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by valuation">
-          Valor
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.valuation | currency}} </td>
-      </ng-container>
-    
-      <!-- Situação Column -->
-      <ng-container matColumnDef="Situação">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by situation">
-          Situação
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <span [ngClass]="element.active ? 'green' : 'red'" class="situacao"></span>
-        </td>
-      </ng-container>
-    
-      <!-- Ação Column -->
-      <ng-container matColumnDef="Ação">
-        <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by action">
-          Ação
-        </th>
-        <td mat-cell *matCellDef="let element" (click)="seeDetails(element.id)">
-          <img src="../../../assets/images/eye.png" alt="ver detalhes" width="28px" />
-        </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
-    </table>
-    
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
-  </div>
+  <body class="body">
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)"
+        class="mat-elevation-z8">
+
+        <ng-container matColumnDef="Nome">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="name" sortActionDescription="Sort by name">
+            Nome
+          </th>
+          <td mat-cell *matCellDef="let element" class="td-name"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Negocios">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="business" sortActionDescription="Sort by business">
+            Business
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.business}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Valor">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="valuation" sortActionDescription="Sort by valuation">
+            Valuation
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.valuation | currencyBr}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Situacao">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="situation" class="situation-th"
+            sortActionDescription="Sort by situation">
+            Situação
+          </th>
+          <td mat-cell *matCellDef="let element" class="centered-column">
+            <span [ngClass]="element.active ? 'green' : 'red'" class="active"></span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Acao">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by action">
+            Ação
+          </th>
+          <td mat-cell *matCellDef="let element" (click)="seeDetails(element.id)">
+            <img src="../../../assets/images/eye.png" alt="ver detalhes" class="eye-img" />
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+    </div>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Item"></mat-paginator>
+  </body>
 </div>

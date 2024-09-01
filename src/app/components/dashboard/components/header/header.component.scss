@@ -1,72 +1,155 @@
 .header {
-    background-color: #FCE3D7;
+    background-color: #FFE0CC;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5% 5%;
-    // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.9% 5%;
     border-bottom: 2px solid #FF7A23;
+    .header__left {
+        display: flex;
+        align-items: center;
+        .header__logo {
+            height: 45px;
+        }
+    }
+    .header__right {
+        display: flex;
+        align-items: center;
+        .header__language {
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 15px;
+            color: #3A3A3C;
+        }
+        .header__divider {
+            height: 36px;
+            width: 1px;
+            background-color: #3A3A3C;
+            margin-right: 15px;
+        }
+        .header__profile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .header__profile-image {
+                width: 32px;
+                height: 32px;
+                background-color: #3A3A3C;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .header__profile-info {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                line-height: normal;
+                .header__profile-name {
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+                
+                .header__profile-role {
+                    font-size: 12px;
+                    color: #666;
+                }                
+            }
+            .header__dropdown-icon {
+                font-size: 20px;
+                margin-left: 5px;
+            }           
+            
+        }
+    }
 }
 
-.header__left {
-    display: flex;
-    align-items: center;
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 5%;
+        
+        .header__left {
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 10px;
+
+            .header__logo {
+                height: 40px;
+            }
+        }
+
+        .header__right {
+            width: 100%;
+            justify-content: center;
+
+            .header__language {
+                margin-right: 10px;
+                font-size: 12px;
+            }
+
+            .header__divider {
+                height: 24px;
+                margin-right: 10px;
+            }
+
+            .header__profile {
+                .header__profile-image {
+                    width: 28px;
+                    height: 28px;
+                }
+
+                .header__profile-info {
+                    .header__profile-name,
+                    .header__profile-role {
+                        font-size: 10px;
+                    }
+                }
+
+                .header__dropdown-icon {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
 }
 
-.header__logo {
-    height: 45px;
-    /* Ajuste a altura conforme necessário */
-}
+@media (max-width: 480px) {
+    .header {
+        padding: 8px 5%;
 
-.header__right {
-    display: flex;
-    align-items: center;
-}
+        .header__left {
+            .header__logo {
+                margin: 5px 0;
+                height: 30px;
+            }
+        }
 
-.header__language {
-    font-size: 16px;
-    font-weight: bold;
-    margin-right: 10px;
-}
+        .header__right {
+            .header__language {
+                font-size: 10px;
+            }
 
-.header__divider {
-    height: 24px;
-    width: 1px;
-    background-color: #333;
-    margin-right: 20px;
-}
+            .header__divider {
+                height: 20px;
+            }
 
-.header__profile {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
+            .header__profile {
+                .header__profile-image {
+                    width: 24px;
+                    height: 24px;
+                }
 
-.header__profile-image {
-    width: 40px;
-    height: 40px;
-    background-color: #333;
-    border-radius: 50%;
-    margin-right: 10px;
-}
+                .header__profile-info {
+                    .header__profile-name,
+                    .header__profile-role {
+                        font-size: 9px;
+                    }
+                }
 
-.header__profile-info {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.header__profile-name {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.header__profile-role {
-    font-size: 14px;
-    color: #666;
-}
-
-.header__dropdown-icon {
-    font-size: 14px;
-    margin-left: 5px;
+                .header__dropdown-icon {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
 }

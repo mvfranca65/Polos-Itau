@@ -1,16 +1,19 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule  } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/dashboard/components/header/header.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { ErrorInterceptor } from './services/interceptors/error.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -26,10 +29,14 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     ReactiveFormsModule,
     MatTableModule, 
-    MatSortModule,
     MatPaginatorModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: MatPaginatorIntl },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi : true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

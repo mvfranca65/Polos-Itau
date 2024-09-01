@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddressItau, PolosItau } from 'src/app/interfaces/polos.interface';
-import { PolosService } from 'src/app/services/polos.service';
+import { PolosService } from 'src/app/services/polos/polos.service';
 
 @Component({
   selector: 'app-details',
@@ -29,15 +29,15 @@ export class DetailsComponent implements OnInit {
   initForm() {
     this.poloForm = this.fb.group({
       cep: ['', Validators.required],
-      rua: ['', Validators.required],
-      bairro: ['', Validators.required],
-      estado: ['', Validators.required],
-      cidade: ['', Validators.required],
-      nome: ['', Validators.required],
+      street: ['', Validators.required],
+      neighborhood: ['', Validators.required],
+      state: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+      city: ['', Validators.required],
+      name: ['', Validators.required],
       business: ['', Validators.required],
       valuation: ['', Validators.required],
       cnpj: ['', Validators.required],
-      ativo: [null, Validators.required]
+      active: [null, Validators.required]
     });
   }
 
@@ -55,10 +55,10 @@ export class DetailsComponent implements OnInit {
   setAddress(address: AddressItau) {
     const getAddress = {
       cep: address.cep,
-      rua: address.street,
-      bairro: address.neighborhood,
-      estado: address.state,
-      cidade: address.city
+      street: address.street,
+      neighborhood: address.neighborhood,
+      state: address.state,
+      city: address.city
     };
 
     this.poloForm.patchValue(getAddress);
@@ -66,20 +66,33 @@ export class DetailsComponent implements OnInit {
 
   setCompanyDetails(response: PolosItau) {
     const getCompany = {
-      nome: response.name,
+      name: response.name,
       business: response.business,
       valuation: response.valuation,
       cnpj: response.cnpj,
-      ativo: response.active
+      active: response.active
     };
 
     this.poloForm.patchValue(getCompany);
   }
 
+  onValuationInput(event: any): void {
+    const formattedValue = this.parseValue(event.target.value);
+    this.poloForm.controls['valuation'].setValue(formattedValue, { emitEvent: false });
+  }
+
+  formatCurrency(): void {
+    const value = this.poloForm.controls['valuation'].value;
+    this.poloForm.controls['valuation'].setValue(parseFloat(value).toFixed(2));
+  }
+
+  private parseValue(value: string): number {
+    return parseFloat(value.replace(/[^0-9.-]+/g, ''));
+  }
+
   onSubmit(): void {
     if (this.poloForm.valid) {
       console.log('Form Submitted', this.poloForm.value);
-      // Aqui você pode implementar a lógica para salvar os dados
     }
   }
 }

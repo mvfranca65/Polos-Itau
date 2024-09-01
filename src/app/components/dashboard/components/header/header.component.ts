@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserData } from 'src/app/interfaces/userData.interface';
-import { PolosService } from 'src/app/services/polos.service';
+import { PolosService } from 'src/app/services/polos/polos.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
 
   setUserData() {
     this.userData = this.polosService.getUser();
-
-    // if (!this.userData.name) this.router.navigate(['']);
+    if (!this.userData.name) this.router.navigate(['']);
   }
 }

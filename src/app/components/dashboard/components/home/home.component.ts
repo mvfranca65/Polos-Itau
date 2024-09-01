@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PolosItau } from 'src/app/interfaces/polos.interface';
-import { PolosService } from 'src/app/services/polos.service';
+import { PolosService } from 'src/app/services/polos/polos.service';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +12,8 @@ import { PolosService } from 'src/app/services/polos.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit  {
-  displayedColumns: string[] = ['Nome', 'Negócios', 'Valor', 'Situação', 'Ação'];
-  dataSource = new MatTableDataSource<PolosItau>([]); // Iniciar com um array vazio para evitar erros de tipagem
+  displayedColumns: string[] = ['Nome', 'Negocios', 'Valor', 'Situacao', 'Acao'];
+  dataSource = new MatTableDataSource<PolosItau>([]);
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -21,12 +21,12 @@ export class HomeComponent implements OnInit, AfterViewInit  {
   constructor(private polosService: PolosService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getAllPolos(); // Carrega os dados assim que o componente é inicializado
+    this.getAllPolos();
   }
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort; // Configura a ordenação após a view ser inicializada
-    this.dataSource.paginator = this.paginator; // Configura a paginação após a view ser inicializada
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   getAllPolos(): void {
@@ -49,11 +49,37 @@ export class HomeComponent implements OnInit, AfterViewInit  {
     this.router.navigate([`itau/detalhes/${id}`]);
   }
 
-  announceSortChange(sortState: Sort): void {
-    if (sortState.direction) {
-      console.log(`Sorted ${sortState.direction}ending`);
-    } else {
-      console.log('Sorting cleared');
+  sortData(sort: Sort) {
+    const data = this.dataSource.data.slice();
+    if (!sort.active || sort.direction === '') {
+      this.insertValuesTable(data);
+      return;
     }
+
+    const sorted = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'name':
+          return this.compareToOrder(a.name, b.name, isAsc);
+        case 'business':
+          return this.compareToOrder(a.business, b.business, isAsc);
+        case 'valuation':
+          return this.compareToOrder(a.valuation, b.valuation, isAsc);
+        case 'situation':
+          return this.compareToOrder(this.convertBoolToString(a.active), this.convertBoolToString(b.active), isAsc);
+        default:
+          return 0;
+      }
+    });
+
+    this.insertValuesTable(sorted);
+  }
+
+  compareToOrder(a: number | string, b: number | string, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
+
+  convertBoolToString(situation: boolean): string {
+    return situation ? 'Sim' : 'Não';
   }
 }

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddressItau } from 'src/app/interfaces/polos.interface';
-import { PolosService } from 'src/app/services/polos.service';
+import { PolosService } from 'src/app/services/polos/polos.service';
 
 @Component({
   selector: 'app-cep',
@@ -16,9 +16,7 @@ export class CepComponent implements OnInit {
 
   cepForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private polosService: PolosService, private snackBar: MatSnackBar) {
-
-  }
+  constructor(private fb: FormBuilder, private polosService: PolosService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.initForm(this.cep);

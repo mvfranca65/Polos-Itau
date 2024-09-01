@@ -9,8 +9,8 @@ const routes: Routes = [
       path: '', 
       component: DashboardComponent,
       children: [
-        { path: 'detalhes/:id', component: DetailsComponent }, // /dashboard/settings
-        { path: 'home', component: HomeComponent }   // /dashboard/profile
+        { path: 'detalhes/:id', component: DetailsComponent },
+        { path: 'home', component: HomeComponent }
       ]
     },
 ];

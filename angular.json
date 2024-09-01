@@ -67,12 +67,19 @@
               "outputHashing": "all"
             },
             "development": {
+              "localize": ["pt"],
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "en": {
+              "localize": ["en"]
+            },
+            "es": {
+              "localize": ["es"]
             }
           },
           "defaultConfiguration": "production"
@@ -85,14 +92,6 @@
             },
             "development": {
               "browserTarget": "polos-itau:build:development"
-            },
-            "en": {
-              "browserTarget": "polos-itau:build:production",
-              "localize": ["en"]
-            },
-            "es": {
-              "browserTarget": "polos-itau:build:production",
-              "localize": ["es"]
             }
           },
           "defaultConfiguration": "development"

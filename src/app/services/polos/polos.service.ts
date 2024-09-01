@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserData } from '../interfaces/userData.interface';
-import { AddressItau, PolosItau } from '../interfaces/polos.interface';
+import { UserData } from '../../interfaces/userData.interface';
+import { AddressItau, PolosItau } from '../../interfaces/polos.interface';
 import getAddress from 'cep-promise';
 
 @Injectable({
