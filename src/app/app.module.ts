@@ -19,15 +19,13 @@ import { CustomPaginatorIntlPt } from '../assets/custom/custom-paginator-int-pt'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
-import { SettingsModalComponent } from './components/dashboard/components/settings-modal/settings-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,    
     LoginComponent,
     DashboardComponent,
-    HeaderComponent,
-    SettingsModalComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

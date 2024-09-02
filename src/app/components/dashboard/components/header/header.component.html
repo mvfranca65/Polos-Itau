@@ -4,7 +4,7 @@
   </div>
   <div class="header__right">
     <div class="header__language">
-      <span #languageLabel i18n="@@languageLabel">PT</span>
+      <span i18n="@@languageLabel">PT</span>
     </div>
     <div class="header__divider"></div>
     <div class="header__profile">
@@ -13,7 +13,7 @@
         <span class="header__profile-name">{{ userData.name }}</span>
         <span class="header__profile-role" i18n="@@userPosition">{{ userData.position }}</span>
       </div>
-      <mat-icon class="header__dropdown-icon" (click)="openDialog()">expand_more</mat-icon>
+      <mat-icon class="header__dropdown-icon">expand_more</mat-icon>
     </div>
   </div>
 </header>
