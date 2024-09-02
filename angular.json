@@ -77,6 +77,10 @@
               "sourceMap": true,
               "namedChunks": true
             },
+            "pt": {
+              "localize": ["pt"],
+              "baseHref": "/pt/"
+            },
             "en": {
               "localize": ["en"],
               "baseHref": "/en/"
