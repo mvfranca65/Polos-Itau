@@ -9,21 +9,25 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/dashboard/components/header/header.component';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ErrorInterceptor } from './services/interceptors/error.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CustomPaginatorIntlEn } from '../assets/custom/custom-paginator-intl-en';
 import { CustomPaginatorIntlEs } from '../assets/custom/custom-paginator-intl-es';
 import { CustomPaginatorIntlPt } from '../assets/custom/custom-paginator-int-pt';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { SettingsModalComponent } from './components/dashboard/components/settings-modal/settings-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,    
     LoginComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    SettingsModalComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,11 @@ import { CustomPaginatorIntlPt } from '../assets/custom/custom-paginator-int-pt'
     MatTableModule, 
     MatPaginatorModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatRadioModule, 
+    FormsModule
   ],
   providers: [
     {

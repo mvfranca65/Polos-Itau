@@ -1,6 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -18,6 +17,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { CurrencyLocalizedPipe } from '../../pipes/currencyLocalized.pipe';
+import { SettingsModalComponent } from './components/settings-modal/settings-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { CurrencyLocalizedPipe } from '../../pipes/currencyLocalized.pipe';
     MatSnackBarModule,
     MatOptionModule,
     MatSelectModule,
+    MatDialogModule,
+    MatButtonModule,
     NgxMaskModule.forRoot()
   ],
 })

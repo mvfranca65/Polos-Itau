@@ -1,19 +1,20 @@
 <header class="header">
-    <div class="header__left">
-        <img src="../assets/images/logo-itau.png" alt="Logo Itaú BBA" class="header__logo" />
+  <div class="header__left">
+    <img src="../assets/images/logo-itau.png" alt="Logo Itaú BBA" class="header__logo" />
+  </div>
+  <div class="header__right">
+    <div class="header__language">
+      <span #languageLabel i18n="@@languageLabel">PT</span>
     </div>
-    <div class="header__right">
-        <div class="header__language">
-            <span i18n="@@languageLabel">PT</span>
-        </div>
-        <div class="header__divider"></div>
-        <div class="header__profile">
-            <div class="header__profile-image"></div>
-            <div class="header__profile-info">
-                <span class="header__profile-name">{{ userData.name }}</span>
-                <span class="header__profile-role" i18n="@@userPosition">{{ userData.position }}</span>
-            </div>
-            <mat-icon class="header__dropdown-icon">expand_more</mat-icon>
-        </div>
+    <div class="header__divider"></div>
+    <div class="header__profile">
+      <div class="header__profile-image"></div>
+      <div class="header__profile-info">
+        <span class="header__profile-name">{{ userData.name }}</span>
+        <span class="header__profile-role" i18n="@@userPosition">{{ userData.position }}</span>
+      </div>
+      <mat-icon class="header__dropdown-icon" (click)="openDialog()">expand_more</mat-icon>
     </div>
+  </div>
 </header>
+

@@ -1,0 +1,13 @@
+<h2 mat-dialog-title i18n="@@preferencesTitle">Preferências</h2>
+<mat-dialog-content class="preferences-content">
+  <p i18n="@@languageSelection">Selecione o idioma do sistema:</p>
+  <mat-radio-group [(ngModel)]="selectedLanguage">
+    <mat-radio-button value="pt" i18n="@@portugueseOption">Português</mat-radio-button>
+    <mat-radio-button value="en" i18n="@@englishOption">Inglês</mat-radio-button>
+    <mat-radio-button value="es" i18n="@@spanishOption">Espanhol</mat-radio-button>
+  </mat-radio-group>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()" i18n="@@cancelButton">Cancelar</button>
+  <button mat-button color="primary" (click)="onSave()" i18n="@@saveButton">Salvar</button>
+</mat-dialog-actions>
