@@ -9,6 +9,12 @@ export class CurrencyLocalizedPipe implements PipeTransform {
   constructor(@Inject(LOCALE_ID) private locale: string, private route: ActivatedRoute, private router: Router) {}
 
   transform(value: number | string, currencyCode: string = 'BRL'): string {
+    this.route.url.subscribe(urlSegments => {
+      console.log("URLSe => ", urlSegments);
+      console.log(urlSegments[0]?.path); // Irá mostrar "pt", "en" ou "es"
+    });
+
+
     const fullPath = this.router.url; // '/pt/itau/home'
     const language = fullPath.split('/')[1]; // 'pt'
 

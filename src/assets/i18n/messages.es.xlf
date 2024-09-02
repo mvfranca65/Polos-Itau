@@ -24,9 +24,6 @@
       <trans-unit id="userPosition" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{ userData.position }}"/></source>
       </trans-unit>
-      <trans-unit id="dropdownIcon" datatype="html">
-        <source>ver_mas</source>
-      </trans-unit>
 
       <!-- Home Component -->
       <trans-unit id="pageTitle" datatype="html">
