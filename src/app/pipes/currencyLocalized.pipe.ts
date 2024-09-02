@@ -1,6 +1,5 @@
 import { formatCurrency, getCurrencySymbol } from "@angular/common";
 import { Pipe, PipeTransform, Inject, LOCALE_ID } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
 
 @Pipe({
   name: 'currencyLocalized'
@@ -13,26 +12,14 @@ export class CurrencyLocalizedPipe implements PipeTransform {
 
   transform(value: number | string): string | null {
     const numberValue = typeof value === 'string' ? parseFloat(value) : value;
-    let currencyCode: string;
-
-    switch (this.locale) {
-      case 'en':
-        currencyCode = 'USD';
-        break;
-      case 'es':
-        currencyCode = 'EUR';
-        break;
-      default:
-        currencyCode = 'BRL';
-        break;
-    }
+    const currencyCode: string = this.getLocale(this.locale);
 
     return formatCurrency(numberValue, this.locale, getCurrencySymbol(currencyCode, 'narrow'), currencyCode, '1.2-2');
   }
 
-  getLocale = (locale: string) => ({
-    'pt': 'pt-BR',
-    'en': 'en-US',
-    'es': 'es-ES'
+  getLocale = (locale: string): string => ({
+    'pt': 'BRL',
+    'en': 'USD',
+    'es': 'EUR'
   }[locale] || 'Not Found');
 }

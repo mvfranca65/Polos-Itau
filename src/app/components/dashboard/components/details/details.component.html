@@ -60,7 +60,7 @@
                         <mat-form-field appearance="outline">
                             <mat-label i18n="@@valuationLabel">Valuation</mat-label>
                             <input matInput placeholder="Valuation"
-                                   [value]="poloForm.get('valuation')?.value | currency:'BRL':'symbol':'1.2-2'"
+                                   [value]="poloForm.get('valuation')?.value | currencyLocalized"
                                    (blur)="formatCurrency()"
                                    (input)="onValuationInput($event)"
                                    i18n-placeholder="@@valuationPlaceholder">

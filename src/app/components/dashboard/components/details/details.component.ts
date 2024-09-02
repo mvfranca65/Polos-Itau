@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { formatCurrency, getCurrencySymbol } from '@angular/common';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddressItau, PolosItau } from 'src/app/interfaces/polos.interface';
@@ -18,7 +19,8 @@ export class DetailsComponent implements OnInit {
     private route: ActivatedRoute, 
     private polosService: PolosService, 
     private fb: FormBuilder, 
-    private router: Router
+    private router: Router,
+    @Inject(LOCALE_ID) private locale: string
   ) { }
 
   ngOnInit(): void {
@@ -83,13 +85,26 @@ export class DetailsComponent implements OnInit {
 
   formatCurrency(): void {
     const value = this.poloForm.controls['valuation'].value;
-    this.poloForm.controls['valuation'].setValue(parseFloat(value).toFixed(2));
+    const currencyCode = this.getCurrencyCode();
+  
+    const formattedValue = formatCurrency(parseFloat(value), this.locale, getCurrencySymbol(currencyCode, 'narrow'), currencyCode, '1.2-2');
+    this.poloForm.controls['valuation'].setValue(formattedValue, { emitEvent: false });
   }
-
+  
+  private getCurrencyCode(): string {
+    switch (this.locale) {
+      case 'en':
+        return 'USD';
+      case 'es':
+        return 'EUR';
+      default:
+        return 'BRL';
+    }
+  }
+  
   private parseValue(value: string): number {
     return parseFloat(value.replace(/[^0-9.-]+/g, ''));
   }
-
   onSubmit(): void {
     if (this.poloForm.valid) {
       console.log('Form Submitted', this.poloForm.value);
