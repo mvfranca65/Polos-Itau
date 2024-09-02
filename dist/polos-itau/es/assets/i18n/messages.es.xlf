@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="login label" datatype="html">
+        <source>Insira seu nome para continuar</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit id="login button" datatype="html">
+        <source>Entrar</source>
+        <target>Login</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
