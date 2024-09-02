@@ -1,6 +1,10 @@
 <form [formGroup]="cepForm" class="form-polo">
     <mat-form-field appearance="outline">
-        <mat-label>CEP</mat-label>
-        <input matInput formControlName="cep" placeholder="00000-000" mask="00000-000">
+        <mat-label i18n="@@cepLabel">CEP</mat-label>
+        <input 
+            matInput 
+            formControlName="cep" 
+            placeholder="00000-000"
+            mask="00000-000">
     </mat-form-field>
 </form>

@@ -30,7 +30,7 @@
 
       <!-- Home Component -->
       <trans-unit id="pageTitle" datatype="html">
-        <source>Itaú Poles</source>
+        <source>Itaú Branches</source>
       </trans-unit>
       <trans-unit id="pageSubtitle" datatype="html">
         <source>Check below some of the main Itaú poles</source>
@@ -70,6 +70,91 @@
       </trans-unit>
       <trans-unit id="paginatorLabel" datatype="html">
         <source>Items per page</source>
+      </trans-unit>
+
+      <!-- Details Component -->
+      <trans-unit id="detailsTitle" datatype="html">
+        <source>Branch <x id="INTERPOLATION" equiv-text="{{ poloData.name }}"/></source>
+      </trans-unit>
+      <trans-unit id="detailsSubtitle" datatype="html">
+        <source>Displaying details of branch <x id="INTERPOLATION" equiv-text="{{ poloData.name }}"/> #<x id="INTERPOLATION_1" equiv-text="{{ poloData.id }}"/></source>
+      </trans-unit>
+      <trans-unit id="addressDetailsTitle" datatype="html">
+        <source>Address Details</source>
+      </trans-unit>
+      <trans-unit id="streetLabel" datatype="html">
+        <source>Street Name</source>
+      </trans-unit>
+      <trans-unit id="streetPlaceholder" datatype="html">
+        <source>Street Name</source>
+      </trans-unit>
+      <trans-unit id="neighborhoodLabel" datatype="html">
+        <source>Neighborhood</source>
+      </trans-unit>
+      <trans-unit id="neighborhoodPlaceholder" datatype="html">
+        <source>Neighborhood</source>
+      </trans-unit>
+      <trans-unit id="stateLabel" datatype="html">
+        <source>State</source>
+      </trans-unit>
+      <trans-unit id="statePlaceholder" datatype="html">
+        <source>State</source>
+      </trans-unit>
+      <trans-unit id="cityLabel" datatype="html">
+        <source>City</source>
+      </trans-unit>
+      <trans-unit id="cityPlaceholder" datatype="html">
+        <source>City</source>
+      </trans-unit>
+      <trans-unit id="companyDetailsTitle" datatype="html">
+        <source>Company Details</source>
+      </trans-unit>
+      <trans-unit id="companyNameLabel" datatype="html">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="companyNamePlaceholder" datatype="html">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="businessLabel" datatype="html">
+        <source>Business</source>
+      </trans-unit>
+      <trans-unit id="businessPlaceholder" datatype="html">
+        <source>Business</source>
+      </trans-unit>
+      <trans-unit id="valuationLabel" datatype="html">
+        <source>Valuation</source>
+      </trans-unit>
+      <trans-unit id="valuationPlaceholder" datatype="html">
+        <source>Valuation</source>
+      </trans-unit>
+      <trans-unit id="cnpjLabel" datatype="html">
+        <source>CNPJ</source>
+      </trans-unit>
+      <trans-unit id="cnpjPlaceholder" datatype="html">
+        <source>CNPJ</source>
+      </trans-unit>
+      <trans-unit id="activeLabel" datatype="html">
+        <source>Active?</source>
+      </trans-unit>
+      <trans-unit id="selectPlaceholder" datatype="html">
+        <source>Select</source>
+      </trans-unit>
+      <trans-unit id="yesOption" datatype="html">
+        <source>Yes</source>
+      </trans-unit>
+      <trans-unit id="noOption" datatype="html">
+        <source>No</source>
+      </trans-unit>
+      <trans-unit id="backButton" datatype="html">
+        <source>Back</source>
+      </trans-unit>
+      <trans-unit id="saveButton" datatype="html">
+        <source>Save</source>
+      </trans-unit>
+
+      <!-- Cep Component -->
+      <trans-unit id="cepLabel" datatype="html">
+        <source>Zip Code</source>
       </trans-unit>
     </body>
   </file>

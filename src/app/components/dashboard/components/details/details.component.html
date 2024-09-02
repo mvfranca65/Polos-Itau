@@ -1,82 +1,83 @@
 <div class="container">
     <header class="header">
         <div class="header__row">
-            <h1 class="header__title">Polo {{ poloData.name }}</h1>
-            <p class="header__subtitle">Exibindo detalhes do polo {{ poloData.name }} #{{ poloData.id }}</p>
+            <h1 class="header__title" i18n="@@detailsTitle">Polo {{ poloData.name }}</h1>
+            <p class="header__subtitle" i18n="@@detailsSubtitle">Exibindo detalhes do polo {{ poloData.name }} #{{ poloData.id }}</p>
         </div>
     </header>
 
     <body class="body">
         <form [formGroup]="poloForm" class="form-polo">
             <div class="form-group">
-                <h2>Detalhes do Endereço</h2>
+                <h2 i18n="@@addressDetailsTitle">Detalhes do Endereço</h2>
                 <div class="form-row">
                     <div class="form-row__form-field">
                       <app-cep [cep]="poloData.cep" (notify)="setAddress($event);"></app-cep>
                     </div>
                     <div class="form-row__form-field-street">
                         <mat-form-field appearance="outline">
-                            <mat-label>Nome da Rua</mat-label>
-                            <input matInput formControlName="street" placeholder="Nome da Rua">
+                            <mat-label i18n="@@streetLabel">Nome da Rua</mat-label>
+                            <input matInput formControlName="street" placeholder="Nome da Rua" i18n-placeholder="@@streetPlaceholder">
                         </mat-form-field>
                     </div>
                     <div class="form-row__form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Bairro</mat-label>
-                            <input matInput formControlName="neighborhood" placeholder="Bairro">
+                            <mat-label i18n="@@neighborhoodLabel">Bairro</mat-label>
+                            <input matInput formControlName="neighborhood" placeholder="Bairro" i18n-placeholder="@@neighborhoodPlaceholder">
                         </mat-form-field>
                     </div>
                     <div class="form-row__form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Estado</mat-label>
-                            <input matInput formControlName="state" placeholder="Estado">
+                            <mat-label i18n="@@stateLabel">Estado</mat-label>
+                            <input matInput formControlName="state" placeholder="Estado" i18n-placeholder="@@statePlaceholder">
                         </mat-form-field>
                     </div>
                     <div class="form-row__form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Cidade</mat-label>
-                            <input matInput formControlName="city" placeholder="Cidade">
+                            <mat-label i18n="@@cityLabel">Cidade</mat-label>
+                            <input matInput formControlName="city" placeholder="Cidade" i18n-placeholder="@@cityPlaceholder">
                         </mat-form-field>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <h2>Detalhes da Empresa</h2>
+                <h2 i18n="@@companyDetailsTitle">Detalhes da Empresa</h2>
                 <div class="form-row">
                     <div class="form-row__form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Nome</mat-label>
-                            <input matInput formControlName="name" placeholder="Nome">
+                            <mat-label i18n="@@companyNameLabel">Nome</mat-label>
+                            <input matInput formControlName="name" placeholder="Nome" i18n-placeholder="@@companyNamePlaceholder">
                         </mat-form-field>
                     </div>
                     <div class="form-row__form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Business</mat-label>
-                            <input matInput formControlName="business" placeholder="Business">
+                            <mat-label i18n="@@businessLabel">Business</mat-label>
+                            <input matInput formControlName="business" placeholder="Business" i18n-placeholder="@@businessPlaceholder">
                         </mat-form-field>
                     </div>
                     <div class="form-row__form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Valuation</mat-label>
-                                <input matInput placeholder="Valuation"
-                                [value]="poloForm.get('valuation')?.value | currency:'BRL':'symbol':'1.2-2'"
-                                (blur)="formatCurrency()"
-                                (input)="onValuationInput($event)">
+                            <mat-label i18n="@@valuationLabel">Valuation</mat-label>
+                            <input matInput placeholder="Valuation"
+                                   [value]="poloForm.get('valuation')?.value | currency:'BRL':'symbol':'1.2-2'"
+                                   (blur)="formatCurrency()"
+                                   (input)="onValuationInput($event)"
+                                   i18n-placeholder="@@valuationPlaceholder">
                         </mat-form-field>
                     </div>
                     <div class="form-row__form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>CNPJ</mat-label>
-                            <input matInput formControlName="cnpj" placeholder="CNPJ" mask="00.000.000/0000-00">
+                            <mat-label i18n="@@cnpjLabel">CNPJ</mat-label>
+                            <input matInput formControlName="cnpj" placeholder="CNPJ" mask="00.000.000/0000-00" i18n-placeholder="@@cnpjPlaceholder">
                         </mat-form-field>
                     </div>
                     <div class="form-row__form-field">
                         <mat-form-field appearance="outline">
-                            <mat-label>Ativo?</mat-label>
-                            <mat-select formControlName="active" placeholder="Selecione">
-                                <mat-option [value]="true">Sim</mat-option>
-                                <mat-option [value]="false">Não</mat-option>
+                            <mat-label i18n="@@activeLabel">Ativo?</mat-label>
+                            <mat-select formControlName="active" placeholder="Selecione" i18n-placeholder="@@selectPlaceholder">
+                                <mat-option [value]="true" i18n="@@yesOption">Sim</mat-option>
+                                <mat-option [value]="false" i18n="@@noOption">Não</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
@@ -84,8 +85,8 @@
             </div>
 
             <div class="form-actions">
-                <button type="button" (click)="onCancel()" class="btn-cancel">Voltar</button>
-                <button type="submit" [disabled]="poloForm.invalid" (click)="onSubmit()" class="btn-save">Salvar</button>
+                <button type="button" (click)="onCancel()" class="btn-cancel" i18n="@@backButton">Voltar</button>
+                <button type="submit" [disabled]="poloForm.invalid" (click)="onSubmit()" class="btn-save" i18n="@@saveButton">Salvar</button>
             </div>
         </form>
     </body>
