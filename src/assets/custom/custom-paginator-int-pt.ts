@@ -1,6 +1,6 @@
 import { MatPaginatorIntl } from '@angular/material/paginator';
 
-export class CustomPaginatorIntl extends MatPaginatorIntl {
+export class CustomPaginatorIntlPt extends MatPaginatorIntl {
   override itemsPerPageLabel = 'Itens por página:';
   override nextPageLabel     = 'Próxima página';
   override previousPageLabel = 'Página anterior';

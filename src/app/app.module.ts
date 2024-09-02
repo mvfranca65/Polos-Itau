@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ErrorInterceptor } from './services/interceptors/error.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CustomPaginatorIntlEn } from '../assets/custom/custom-paginator-intl-en';
+import { CustomPaginatorIntlEs } from '../assets/custom/custom-paginator-intl-es';
+import { CustomPaginatorIntlPt } from '../assets/custom/custom-paginator-int-pt';
 
 
 @NgModule({
@@ -34,7 +37,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule
   ],
   providers: [
-    { provide: MatPaginatorIntl, useClass: MatPaginatorIntl },
+    {
+      provide: MatPaginatorIntl,
+      useFactory: (locale: string) => {
+        switch (locale) {
+          case 'en':
+            return new CustomPaginatorIntlEn();
+          case 'es':
+            return new CustomPaginatorIntlEs();
+          default:
+            return new CustomPaginatorIntlPt();
+        }
+      },
+      deps: [LOCALE_ID]
+    },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi : true }
   ],
   bootstrap: [AppComponent]
