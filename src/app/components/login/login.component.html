@@ -6,7 +6,7 @@
             </div>
         </header>
         <div class="login-box">
-            <p class="login-subtitle" i18n="login label|Username label">Insira seu nome para continuar</p>
+            <p class="login-subtitle" i18n="login label">Insira seu nome para continuar</p>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
                 <input type="text" formControlName="name" class="login-input" placeholder="Nome" required>
                 <button type="submit" class="login-button" [disabled]="loginForm.invalid" i18n="login button|Login button">Entrar</button>
