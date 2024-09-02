@@ -29,6 +29,7 @@
   }
 
   .body {
+    height: auto;
     .form-polo {
       .form-group {
         margin-bottom: 20px;
@@ -41,12 +42,11 @@
 
         .form-row {
           display: flex;
-          flex-wrap: wrap; /* Permite que os campos sejam quebrados em várias linhas em telas menores */
-
+          flex-wrap: wrap;
           .form-row__form-field, .form-row__form-field-street {
             flex: 1;
             margin-right: 15px;
-            min-width: 150px; /* Define um tamanho mínimo para os campos, para não ficarem muito pequenos */
+            min-width: 150px;
 
             mat-form-field {
               width: 100%;
@@ -54,7 +54,7 @@
           }
 
           .form-row__form-field-street {
-            flex: 2; /* O campo de rua será maior */
+            flex: 2;
           }
 
           .form-row__form-field:last-child {

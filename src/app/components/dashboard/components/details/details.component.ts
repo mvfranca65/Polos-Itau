@@ -102,7 +102,7 @@ export class DetailsComponent implements OnInit {
   }
   onSubmit(): void {
     if (this.poloForm.valid) {
-      console.log('Form Submitted', this.poloForm.value);
+      alert('OK');
     }
   }
 }

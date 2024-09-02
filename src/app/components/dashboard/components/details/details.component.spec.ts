@@ -1,14 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { DetailsComponent } from './details.component';
 import { PolosService } from 'src/app/services/polos/polos.service';
 import { PolosItau, AddressItau } from 'src/app/interfaces/polos.interface';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurrencyLocalizedPipe } from 'src/app/pipes/currencyLocalized.pipe';
 
 describe('DetailsComponent', () => {
   let component: DetailsComponent;
@@ -51,16 +53,16 @@ describe('DetailsComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      declarations: [DetailsComponent],
+      declarations: [DetailsComponent, CurrencyLocalizedPipe],
       imports: [
-        ReactiveFormsModule, 
-        MatFormFieldModule, 
-        MatInputModule, 
-        MatSelectModule, 
-        NoopAnimationsModule
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSnackBarModule,
+        MatSelectModule,
+        BrowserAnimationsModule
       ],
       providers: [
-        FormBuilder,
         { provide: PolosService, useValue: mockPolosService },
         { provide: Router, useValue: mockRouter },
         { provide: ActivatedRoute, useValue: mockActivatedRoute }
@@ -78,7 +80,7 @@ describe('DetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-   it('should initialize the form', () => {
+  it('should initialize the form', () => {
     expect(component.poloForm).toBeDefined();
     expect(component.poloForm.contains('cep')).toBe(true);
     expect(component.poloForm.contains('street')).toBe(true);
@@ -92,16 +94,22 @@ describe('DetailsComponent', () => {
     expect(component.poloForm.contains('active')).toBe(true);
   });
 
+  it('should get polo data on init and set company details', () => {
+    component.ngOnInit();
+    expect(mockPolosService.getPolo).toHaveBeenCalledWith('1');
+    expect(component.poloData).toEqual(mockPoloData);
+  });
+
   it('should patch address data into the form', () => {
     component.setAddress(mockAddress);
     expect(component.poloForm.value.cep).toEqual(mockAddress.cep);
     expect(component.poloForm.value.street).toEqual(mockAddress.street);
   });
 
-  it('should format currency on blur', () => {
-    component.poloForm.controls['valuation'].setValue('1234.5');
-    component.formatCurrency();
-    expect(component.poloForm.controls['valuation'].value).toBe('1234.50');
+  it('should parse value correctly in onValuationInput', () => {
+    const event = { target: { value: 'R$ 1.234,56' } };
+    component.onValuationInput(event);
+    expect(component.poloForm.controls['valuation'].value).toBe(1.23456);
   });
 
   it('should navigate back to home on cancel', () => {
@@ -114,17 +122,5 @@ describe('DetailsComponent', () => {
     component.poloForm.controls['name'].setValue('');
     component.onSubmit();
     expect(console.log).not.toHaveBeenCalled();
-  });
-
-  it('should format the valuation control value to 2 decimal places', () => {
-    component.poloForm.controls['valuation'].setValue('1234.5');
-    component.formatCurrency();
-    expect(component.poloForm.controls['valuation'].value).toBe('1234.50');
-  });
-
-  it('should correctly parse the value string to a number', () => {
-    const value = 'R$ 1.234,56';
-    const parsedValue = component['parseValue'](value);
-    expect(parsedValue).toBe(1.23456);
   });
 });

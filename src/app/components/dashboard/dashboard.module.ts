@@ -45,5 +45,6 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     NgxMaskModule.forRoot()
   ],
+  exports: [CurrencyLocalizedPipe]
 })
 export class DashboardModule { }
