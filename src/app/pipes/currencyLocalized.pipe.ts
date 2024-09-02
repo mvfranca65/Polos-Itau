@@ -1,3 +1,4 @@
+import { formatCurrency, getCurrencySymbol } from "@angular/common";
 import { Pipe, PipeTransform, Inject, LOCALE_ID } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -6,28 +7,27 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class CurrencyLocalizedPipe implements PipeTransform {
 
-  constructor(@Inject(LOCALE_ID) private locale: string, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    @Inject(LOCALE_ID) private locale: string
+  ) {}
 
-  transform(value: number | string, currencyCode: string = 'BRL'): string {
-    this.route.url.subscribe(urlSegments => {
-      console.log("URLSe => ", urlSegments);
-      console.log(urlSegments[0]?.path); // Irá mostrar "pt", "en" ou "es"
-    });
+  transform(value: number | string): string | null {
+    const numberValue = typeof value === 'string' ? parseFloat(value) : value;
+    let currencyCode: string;
 
-
-    const fullPath = this.router.url; // '/pt/itau/home'
-    const language = fullPath.split('/')[1]; // 'pt'
-
-    const locale = this.getLocale(language);
-    console.log('FULLPATH => ', fullPath);
-    console.log('LANGUAGE => ', language);
-    console.log("LOCALE => ", locale);
-
-    if (typeof value === 'number') {
-      return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    switch (this.locale) {
+      case 'en':
+        currencyCode = 'USD';
+        break;
+      case 'es':
+        currencyCode = 'EUR';
+        break;
+      default:
+        currencyCode = 'BRL';
+        break;
     }
-    
-    return value;
+
+    return formatCurrency(numberValue, this.locale, getCurrencySymbol(currencyCode, 'narrow'), currencyCode, '1.2-2');
   }
 
   getLocale = (locale: string) => ({
