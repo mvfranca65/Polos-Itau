@@ -10,6 +10,14 @@
         </context-group>
         <note priority="1" from="description">login label</note>
       </trans-unit>
+      <trans-unit id="2332180001770133395" datatype="html">
+        <source>Nombre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Placeholder for login input field</note>
+      </trans-unit>
       <trans-unit id="8115815841611746476" datatype="html">
         <source>Login</source>
         <context-group purpose="location">
