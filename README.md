@@ -1,27 +1,37 @@
-# PolosItau
+# Sistema Polos Itaú
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+Este projeto foi desenvolvido utilizando [Angular CLI](https://github.com/angular/angular-cli).
 
-## Development server
+## 🌐 Disponibilidade de Idiomas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O sistema está disponível em três idiomas:
 
-## Code scaffolding
+- **Português**: [Polos Itaú (Português)](https://polos-itau.netlify.app/pt/itau/home)
+- **Inglês**: [Polos Itaú (Inglês)](https://polos-itau.netlify.app/en/itau/home)
+- **Espanhol**: [Polos Itaú (Espanhol)](https://polos-itau.netlify.app/es/itau/home)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📋 Funcionalidades
 
-## Build
+### Página de Login
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O usuário deve inserir seu nome na tela de login.
 
-## Running unit tests
+### Página Inicial
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+A tela de home exibe os dados dos Polos Itaú.
 
-## Running end-to-end tests
+### Página de Detalhes
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Exibe os detalhes do Polo selecionado.
 
-## Further help
+## 🚀 Implantação
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+O sistema está disponível através do [Netlify](https://www.netlify.com/).
+
+## Servidor de Desenvolvimento
+
+Execute `npm run start` para iniciar um servidor de desenvolvimento. Navegue para `http://localhost:4200/`. A aplicação recarregará automaticamente se você alterar qualquer um dos arquivos de origem.
+
+## Execução de Testes Unitários
+
+Execute `npm run test` ou `npm run coverage` para executar os testes unitários via [Karma](https://karma-runner.github.io).
