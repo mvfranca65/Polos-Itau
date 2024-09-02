@@ -34,7 +34,7 @@
             i18n-sortActionDescription="@@sortByValuationDescription" i18n="@@columnValuation">
             Valor
           </th>
-          <td mat-cell *matCellDef="let element"> {{ element.valuation | currencyLocalized:'BRL' }} </td>
+          <td mat-cell *matCellDef="let element"> {{ element.valuation | currencyLocalized }} </td>
         </ng-container>
 
         <ng-container matColumnDef="Situacao">
