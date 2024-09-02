@@ -85,24 +85,19 @@ export class DetailsComponent implements OnInit {
 
   formatCurrency(): void {
     const value = this.poloForm.controls['valuation'].value;
-    const currencyCode = this.getCurrencyCode();
+    const currencyCode = this.getLocale(this.locale);
   
     const formattedValue = formatCurrency(parseFloat(value), this.locale, getCurrencySymbol(currencyCode, 'narrow'), currencyCode, '1.2-2');
     this.poloForm.controls['valuation'].setValue(formattedValue, { emitEvent: false });
   }
+
+  getLocale = (locale: string): string => ({
+    'pt': 'BRL',
+    'en': 'USD',
+    'es': 'EUR'
+  }[locale] || 'Not Found');
   
-  private getCurrencyCode(): string {
-    switch (this.locale) {
-      case 'en':
-        return 'USD';
-      case 'es':
-        return 'EUR';
-      default:
-        return 'BRL';
-    }
-  }
-  
-  private parseValue(value: string): number {
+  parseValue(value: string): number {
     return parseFloat(value.replace(/[^0-9.-]+/g, ''));
   }
   onSubmit(): void {

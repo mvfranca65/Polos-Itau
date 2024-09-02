@@ -1,6 +1,7 @@
 .hubs {
   padding: 0 5%;
   background-color: #FBFBFB;
+  height: -webkit-fill-available;
 
   .header {
     display: flex;
@@ -52,7 +53,7 @@
   }
 
   .body {
-    margin: 20px 0 60px 0;
+    padding: 20px 0 60px 0;
 
     .table-responsive {
       width: 100%;
