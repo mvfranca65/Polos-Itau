@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="es" datatype="plaintext" original="ng2.template">
-   <body>
+    <body>
       <!-- Login Component -->
       <trans-unit id="165289639687314785" datatype="html">
         <source>Introduce tu nombre para continuar</source>
@@ -26,6 +26,50 @@
       </trans-unit>
       <trans-unit id="dropdownIcon" datatype="html">
         <source>ver_mas</source>
+      </trans-unit>
+
+      <!-- Home Component -->
+      <trans-unit id="pageTitle" datatype="html">
+        <source>Polos Itaú</source>
+      </trans-unit>
+      <trans-unit id="pageSubtitle" datatype="html">
+        <source>Verifique a continuación algunos de los principales polos de Itaú</source>
+      </trans-unit>
+      <trans-unit id="searchPlaceholder" datatype="html">
+        <source>Buscar...</source>
+      </trans-unit>
+      <trans-unit id="sortByNameDescription" datatype="html">
+        <source>Ordenar por nombre</source>
+      </trans-unit>
+      <trans-unit id="columnName" datatype="html">
+        <source>Nombre</source>
+      </trans-unit>
+      <trans-unit id="sortByBusinessDescription" datatype="html">
+        <source>Ordenar por negocio</source>
+      </trans-unit>
+      <trans-unit id="columnBusiness" datatype="html">
+        <source>Negocios</source>
+      </trans-unit>
+      <trans-unit id="sortByValuationDescription" datatype="html">
+        <source>Ordenar por valoración</source>
+      </trans-unit>
+      <trans-unit id="columnValuation" datatype="html">
+        <source>Valor</source>
+      </trans-unit>
+      <trans-unit id="sortBySituationDescription" datatype="html">
+        <source>Ordenar por situación</source>
+      </trans-unit>
+      <trans-unit id="columnSituation" datatype="html">
+        <source>Situación</source>
+      </trans-unit>
+      <trans-unit id="columnAction" datatype="html">
+        <source>Acción</source>
+      </trans-unit>
+      <trans-unit id="viewDetailsAlt" datatype="html">
+        <source>ver detalles</source>
+      </trans-unit>
+      <trans-unit id="paginatorLabel" datatype="html">
+        <source>Elementos por página</source>
       </trans-unit>
     </body>
   </file>
