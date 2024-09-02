@@ -2,6 +2,27 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="pt" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="languageLabel" datatype="html">
+        <source>PT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dashboard/components/header/header.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="userPosition" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ userData.position }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dashboard/components/header/header.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropdownIcon" datatype="html">
+        <source>expand_more</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dashboard/components/header/header.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="165289639687314785" datatype="html">
         <source>Insira seu nome para continuar</source>
         <context-group purpose="location">
